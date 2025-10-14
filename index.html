@@ -12,7 +12,20 @@
       text-align: center;
       margin: 0;
       padding: 0;
-    }
+    }/* ---- Background image & animation ---- */
+body {
+  background: #000 url('assets/bg-smoke.jpg') center/cover no-repeat fixed;
+  color: #fff;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.wrap {
+  animation: fadeUp 1s ease both;
+}
     header {
       padding: 60px 20px;
     }
@@ -47,7 +60,40 @@
     }
     a:hover {
       background-color: #b20710;
-    }
+    }/* ---- Glow Button Style ---- */
+a {
+  color: #fff;
+  text-decoration: none;
+  background-color: #e50914;
+  padding: 10px 20px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 20px;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #ff005d, 0 0 20px #ff005d;
+}
+
+a:hover {
+  background-color: #ff4081;
+  box-shadow: 0 0 20px #ff4081, 0 0 40px #ff4081;
+}
+
+    /* ---- Neon Glow Effect ---- */
+h2 {
+  color: #fff;
+  text-shadow: 0 0 10px #ff005d, 0 0 20px #ff005d, 0 0 40px #ff005d;
+  animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from {
+    text-shadow: 0 0 10px #ff005d, 0 0 20px #ff005d, 0 0 40px #ff005d;
+  }
+  to {
+    text-shadow: 0 0 20px #ff4081, 0 0 40px #ff4081, 0 0 60px #ff4081;
+  }
+}
+
   </style>
 </head>
 
@@ -59,6 +105,18 @@
 
   <p>🔥 Exclusive drops — limited. Weekly. Certified authentic.</p>
   <a href="https://instagram.com/wearifudare" target="_blank">Follow us on Instagram</a>
+<div class="cta-row" style="margin-top:10px;">
+  <a href="https://instagram.com/wearifudare" target="_blank">📸</a>
+  <a href="https://tiktok.com/@wearifudare" target="_blank">🎵</a>
+  <a href="mailto:wearifudare@gmail.com" target="_blank">📧</a>
+</div>
+  <section style="text-align:center;margin:40px 0;">
+  <h2 style="font-weight:900;letter-spacing:.1em;">ABOUT THE DARE</h2>
+  <p style="max-width:600px;margin:10px auto;color:#bfbfbf;line-height:1.5;">
+    Born from fearless self-expression. WEAR[IF][U]DARE™ blends luxury minimalism with street attitude. 
+    Every drop is limited — no restock, no second chance. Dare to wear. Fear to miss.
+  </p>
+</section>
 
   <footer>
     <p>© 2025 WEAR[IF][U]DARE™. All Rights Reserved.</p>
