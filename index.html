@@ -40,15 +40,13 @@ body::after {
   pointer-events: none;
   z-index: -1;
 }
-/* Main artwork */
-body::before{
+/* --- Enhanced background lighting for clarity --- */
+body::before {
   background:
-    linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.15) 35%, rgba(0,0,0,.55) 100%),
-    radial-gradient(120% 120% at 50% 65%, rgba(0,0,0,0) 35%, rgba(0,0,0,.55) 75%, rgba(0,0,0,.75) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,.25) 40%, rgba(0,0,0,.75) 100%),
+    radial-gradient(80% 80% at 60% 45%, rgba(255,0,64,.08) 5%, rgba(0,0,0,0) 55%),
     var(--bg-img) center / cover no-repeat fixed;
-  filter: contrast(1.05) saturate(1.1);
-  will-change: transform;
-  transform: translateZ(0);
+  filter: brightness(1.08) contrast(1.15) saturate(1.15);
 }
 /* Fine film grain overlay */
 body::after{
