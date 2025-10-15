@@ -12,17 +12,130 @@
       text-align: center;
       margin: 0;
       padding: 0;
-    }/* ---- Background image & animation ---- */
+    }/* ===== HERO BACKDROP: badass luxury street vibe ===== */
+:root{
+  --bg-img: url('assets/SNAKE.1.jpg'); /* adjust if you placed it elsewhere */
+  --brand-red: #ff0d43;
+  --brand-hot: #ff4d7a;
+  --ink: #0a0a0a;
+  --text: #f2f2f2;
+}
+
+html, body {
+  height: 100%;
+}
+
 body {
-  background: #000 url('assets/bg-smoke.jpg') center/cover no-repeat fixed;
+  margin: 0;
+  color: var(--text);
+  background: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  overflow-x: hidden;
+}
+
+/* Background image + cinematic layers */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Main artwork */
+body::before{
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.15) 35%, rgba(0,0,0,.55) 100%),
+    radial-gradient(120% 120% at 50% 65%, rgba(0,0,0,0) 35%, rgba(0,0,0,.55) 75%, rgba(0,0,0,.75) 100%),
+    var(--bg-img) center / cover no-repeat fixed;
+  filter: contrast(1.05) saturate(1.1);
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Fine film grain overlay */
+body::after{
+  background-image:
+    radial-gradient(rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 2px 2px;
+  mix-blend-mode: soft-light;
+  opacity: .35;
+}
+
+/* Hero wrapper */
+.wrap{
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: clamp(24px, 5vw, 64px);
+  text-align: center;
+}
+
+/* Brand Title */
+h1.brand{
+  font-weight: 900;
+  letter-spacing: .06em;
+  line-height: 1.05;
+  font-size: clamp(38px, 7vw, 80px);
+  text-transform: uppercase;
+  text-shadow:
+    0 0 .6rem rgba(255, 77, 122, .25),
+    0 0 1.2rem rgba(255, 13, 67, .15);
+  animation: pulseGlow 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow{
+  from { text-shadow:
+    0 0 .4rem rgba(255, 77, 122, .2),
+    0 0 .8rem rgba(255, 13, 67, .1); }
+  to   { text-shadow:
+    0 0 1.2rem rgba(255, 77, 122, .55),
+    0 0 2.2rem rgba(255, 13, 67, .35); }
+}
+
+/* Tagline */
+.tagline{
+  max-width: 62ch;
+  margin-inline: auto;
+  margin-top: 10px;
+  opacity: .92;
+  font-size: clamp(16px, 2.2vw, 20px);
+}
+
+/* Call-to-action button */
+a.btn{
+  display: inline-block;
+  margin-top: 28px;
+  padding: 14px 22px;
+  border-radius: 12px;
+  text-decoration: none;
   color: #fff;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow:
+    0 6px 24px rgba(255, 13, 67, .22),
+    inset 0 0 0 1px rgba(255,255,255,.08);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+a.btn:hover{
+  transform: translateY(-2px);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.05));
+  box-shadow:
+    0 10px 32px rgba(255, 77, 122, .35),
+    inset 0 0 0 1px rgba(255,255,255,.1);
 }
 
+section.about{
+  margin-top: clamp(40px, 8vw, 80px);
+  max-width: 75ch;
+  margin-inline: auto;
+}
 .wrap {
   animation: fadeUp 1s ease both;
 }
